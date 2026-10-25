@@ -1,6 +1,6 @@
 /* ==========================================================================
    Zencode — a clean, code-friendly theme for Obsidian
-   Default palette follows GitHub Primer light / dark (UI + syntax).
+   Default palette: GitHub Primer light + Atom One Dark (UI + syntax).
    Zed Gruvbox and Zed One palettes are available via Style Settings.
    ========================================================================== */
 
@@ -12,9 +12,11 @@ settings:
     title: Color palette
     type: class-select
     allowEmpty: false
-    default: zen-palette-github
+    default: zen-palette-default
     options:
-      - label: GitHub (white / black)
+      - label: GitHub light + Atom One Dark
+        value: zen-palette-default
+      - label: GitHub (light / dark)
         value: zen-palette-github
       - label: Zed Gruvbox
         value: zen-palette-gruvbox
@@ -542,9 +544,90 @@ body.zen-sans-text {
 }
 
 /* --------------------------------------------------------------------------
-   3. Dark palette — GitHub Primer dark (default)
+   3. Dark palette — Atom One Dark (default)
+   Colors from atom/one-dark-syntax (colors.less / syntax-variables.less).
    -------------------------------------------------------------------------- */
 .theme-dark {
+  --accent-h: 207;
+  --accent-s: 82%;
+  --accent-l: 66%;
+
+  --color-base-00: #21252b;
+  --color-base-05: #23272e;
+  --color-base-10: #262a31;
+  --color-base-20: #282c34;
+  --color-base-25: #2c313a;
+  --color-base-30: #3e4451;
+  --color-base-35: #4b5263;
+  --color-base-40: #5c6370;
+  --color-base-50: #636d83;
+  --color-base-60: #7f848e;
+  --color-base-70: #828997;
+  --color-base-100: #abb2bf;
+
+  --background-primary: #282c34;
+  --background-primary-alt: #21252b;
+  --background-secondary: #21252b;
+  --background-secondary-alt: #2c313a;
+  --background-modifier-border: #181a1f;
+  --text-normal: #abb2bf;
+  --text-muted: #828997;
+  --text-faint: #636d83;
+
+  --zen-border-muted: #3e4451;
+  --zen-inline-code-bg: rgba(62, 68, 81, 0.6);
+  --zen-bullet-color: #abb2bf;
+  --zen-code-border: #181a1f;
+
+  --text-selection: #3e4451;
+  --text-highlight-bg: rgba(229, 192, 123, 0.25);
+  --hr-color: #3e4451;
+  --blockquote-border-color: #3e4451;
+  --blockquote-color: var(--text-muted);
+  --table-border-color: #3e4451;
+  --table-header-background: #21252b;
+  --table-row-alt-background: #2c313a;
+  --tag-background: rgba(97, 175, 239, 0.1);
+  --tag-background-hover: rgba(97, 175, 239, 0.18);
+  --tag-border-color: rgba(97, 175, 239, 0.3);
+
+  /* Syntax — Atom One Dark */
+  --zen-syn-text: #abb2bf;
+  --zen-syn-comment: #5c6370;
+  --zen-syn-comment-style: italic;
+  --zen-syn-keyword: #c678dd;
+  --zen-syn-string: #98c379;
+  --zen-syn-number: #d19a66;
+  --zen-syn-constant: #d19a66;
+  --zen-syn-property: #e06c75;
+  --zen-syn-attr: #d19a66;
+  --zen-syn-function: #61afef;
+  --zen-syn-type: #e5c07b;
+  --zen-syn-builtin: #56b6c2;
+  --zen-syn-variable: #e06c75;
+  --zen-syn-tag: #e06c75;
+  --zen-syn-selector: #d19a66;
+  --zen-syn-regex: #56b6c2;
+  --zen-syn-operator: #56b6c2;
+  --zen-syn-punctuation: #abb2bf;
+  --zen-syn-inserted: #98c379;
+  --zen-syn-inserted-bg: rgba(152, 195, 121, 0.12);
+  --zen-syn-deleted: #e06c75;
+  --zen-syn-deleted-bg: rgba(224, 108, 117, 0.12);
+
+  --zen-c-blue: 97, 175, 239;
+  --zen-c-green: 152, 195, 121;
+  --zen-c-purple: 198, 120, 221;
+  --zen-c-yellow: 229, 192, 123;
+  --zen-c-red: 224, 108, 117;
+  --zen-c-gray: 130, 137, 151;
+  --zen-c-cyan: 86, 182, 194;
+}
+
+/* --------------------------------------------------------------------------
+   3b. Dark palette — GitHub Primer dark (optional)
+   -------------------------------------------------------------------------- */
+.theme-dark.zen-palette-github {
   --accent-h: 213;
   --accent-s: 93%;
   --accent-l: 62%;
@@ -919,6 +1002,7 @@ body.zen-no-code-border .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock
 .markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-comment,
 .markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-meta {
   color: var(--zen-syn-comment);
+  font-style: var(--zen-syn-comment-style, normal);
 }
 
 /* keywords */
@@ -983,13 +1067,17 @@ body.zen-no-code-border .markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock
   color: var(--zen-syn-function);
 }
 
-/* types, classes, builtins */
+/* types & classes */
 .markdown-rendered pre .token.class-name,
-.markdown-rendered pre .token.builtin,
 .markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-type,
-.markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-variable-3,
-.markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-builtin {
+.markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-variable-3 {
   color: var(--zen-syn-type);
+}
+
+/* builtins (console, print, len…) — own color only where a palette sets one */
+.markdown-rendered pre .token.builtin,
+.markdown-source-view.mod-cm6 .HyperMD-codeblock .cm-builtin {
+  color: var(--zen-syn-builtin, var(--zen-syn-type));
 }
 
 /* variables, parameters */

@@ -1,6 +1,6 @@
 # Zencode — an Obsidian theme
 
-A clean, code-friendly theme for Obsidian. By default it uses GitHub's white / black colors for the interface and for syntax highlighting. Palettes from the [Zed](https://zed.dev) editor (Gruvbox and One) are available as options.
+A clean, code-friendly theme for Obsidian. By default it uses GitHub's light colors in light mode and [Atom One Dark](https://github.com/atom/one-dark-syntax) in dark mode, for both the interface and syntax highlighting. Palettes from the [Zed](https://zed.dev) editor (Gruvbox and One) are available as options.
 
 - Notes in the [Lilex](https://github.com/mishamyrt/Lilex) monospace font and the interface in IBM Plex Sans, like Zed (`brew install --cask font-lilex font-ibm-plex-sans`). Without them the system fonts are used.
 - Underlined H1/H2, 1.65 line height
@@ -25,7 +25,7 @@ When you edit `theme.css`, Obsidian usually reloads it automatically. If it does
 
 If you have the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin, you can change:
 
-- the color palette: GitHub (default), Zed Gruvbox or Zed One
+- the color palette: GitHub light + Atom One Dark (default), GitHub light/dark, Zed Gruvbox or Zed One
 - monospace or sans-serif note text
 - the readable line width
 - the code font size
