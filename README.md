@@ -1,5 +1,7 @@
 # Zencode — an Obsidian theme
 
+![Zencode in light and dark mode](img/img2.png)
+
 A clean, code-friendly theme for Obsidian. By default it uses GitHub's light colors in light mode and [Atom One Dark](https://github.com/atom/one-dark-syntax) in dark mode, for both the interface and syntax highlighting. Palettes from the [Zed](https://zed.dev) editor (Gruvbox and One) are available as options.
 
 - Notes in the [Lilex](https://github.com/mishamyrt/Lilex) monospace font and the interface in IBM Plex Sans, like Zed (`brew install --cask font-lilex font-ibm-plex-sans`). Without them the system fonts are used.
@@ -40,3 +42,7 @@ If you have the [Style Settings](https://github.com/mgmeyers/obsidian-style-sett
 | `manifest.json` | Theme metadata (the `name` is the folder name)  |
 | `theme.css`     | Everything else                                 |
 | `sample.md`     | A note for checking how the theme looks         |
+
+## License
+
+[MIT](LICENSE)
